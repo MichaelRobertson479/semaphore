@@ -45,7 +45,7 @@ int main() {
   //*strchr(data, '\n') = 0;
 
   file = open("story", O_WRONLY | O_APPEND);
-  write(file, data, SEGSIZE);
+  write(file, data);
   close(file);
 
   sb.sem_op = 1;
