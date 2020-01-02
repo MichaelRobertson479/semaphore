@@ -66,24 +66,37 @@ int main (int argc, char *argv[]) {
         }
 
         else if (strcmp(argv[1],"-v") == 0) {
-            printf("detects -v\n");
+            
+            //display story
+            file = open("story", O_RDONLY);
+            char line [SEGSIZE];
+
+            printf("The story so far:\n");
+
+            while (read(file, line, SEGSIZE) > 0) {
+                printf("%s\n",line);
+            }
+
+            close(file);
         }
 
         else if (strcmp(argv[1],"-r") == 0) {
             
             //display story
             file = open("story", O_RDONLY);
-            char * line;
+            char line [SEGSIZE];
+
+            printf("The story so far:\n");
 
             while (read(file, line, SEGSIZE) > 0) {
                 printf("%s\n",line);
             }
-            
+
             close(file);
 
             //remove semaphore
             semctl(semd, IPC_RMID, 0);
-            printf("semaphore removed\n");
+            printf("\nsemaphore removed\n");
 
             //remove shared memory
             shmctl(shmd, IPC_RMID, 0);
