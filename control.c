@@ -73,7 +73,7 @@ int main (int argc, char *argv[]) {
             
             //display story
             file = open("story", O_RDONLY);
-            char line [SEGSIZE];
+            char * line;
 
             while (read(file, line, SEGSIZE) > 0) {
                 printf("%s\n",line);
