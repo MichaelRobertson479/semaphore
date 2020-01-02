@@ -73,11 +73,12 @@ int main (int argc, char *argv[]) {
             
             //display story
             file = open("story", O_RDONLY);
-            char * data;
+            char line [SEGSIZE];
 
-            read(file, data, SEGSIZE);
-            printf("%s\n",data);
-
+            while (read(file, line, SEGSIZE) > 0) {
+                printf("%s\n",line);
+            }
+            
             close(file);
 
             //remove semaphore
