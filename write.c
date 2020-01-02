@@ -40,7 +40,7 @@ int main() {
     printf("Last addition: %s\n",data);
 
   printf("Your addition: ");
-  fgets(data, SEG_SIZE, stdin);
+  fgets(data, SEGSIZE, stdin);
   *strchr(data, '\n') = 0;
   printf("%s\n",data);
 

@@ -46,7 +46,7 @@ int main (int argc, char *argv[]) {
 
             if (semd == -1) {
                 printf("error %d: %s\n", errno, strerror(errno));
-                semd = semget(KEY, 1, 0);
+                semd = semget(SEMKEY, 1, 0);
                 v = semctl(semd, 0, GETVAL, 0);
                 printf("semctl returned: %d\n", v);
             }
@@ -59,7 +59,7 @@ int main (int argc, char *argv[]) {
             }
 
             //create shared memory
-            shmd = shmget(KEY, SEG_SIZE, IPC_CREAT | 0644);
+            shmd = shmget(SHMKEY, SEGSIZE, IPC_CREAT | 0644);
 
             //create file
             file = open("story", O_CREAT | O_EXCL | O_TRUNC | O_RDWR, 0644);
