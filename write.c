@@ -42,7 +42,7 @@ int main() {
 
   printf("Your addition: ");
   fgets(data, SEGSIZE, stdin);
-  *strchr(data, '\n') = '\0';
+  *strchr(data, '\n') = 0;
 
   file = open("story", O_WRONLY | O_APPEND);
   write(file, data, SEGSIZE);
