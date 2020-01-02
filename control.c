@@ -72,7 +72,7 @@ int main (int argc, char *argv[]) {
         else if (strcmp(argv[1],"-r") == 0) {
             
             //display story
-            open(file, O_RDONLY);
+            file = open("story", O_RDONLY);
             char * data;
 
             read(file, data, SEGSIZE);
