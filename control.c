@@ -8,7 +8,7 @@
 #include <sys/types.h>
 #include <errno.h>
 #include <string.h>
-#include <fctnl.h>
+#include <fcntl.h>
 
 #define SEMKEY 24602
 #define SHMKEY 24601
