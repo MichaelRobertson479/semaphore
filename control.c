@@ -82,7 +82,7 @@ int main (int argc, char *argv[]) {
 
         else if (strcmp(argv[1],"-r") == 0) {
             
-            semd = semget(KEY, 1, 0);
+            semd = semget(SEMKEY, 1, 0);
             struct sembuf sb;
             sb.sem_num = 0;
             //sb.sem_flg = SEM_UNDO;
@@ -104,7 +104,7 @@ int main (int argc, char *argv[]) {
             close(file);
 
             sb.sem_op = 1;
-            semop(semdn, &sb, 1);
+            semop(semd, &sb, 1);
 
             //remove semaphore
             semctl(semd, IPC_RMID, 0);
